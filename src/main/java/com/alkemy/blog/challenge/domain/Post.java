@@ -52,4 +52,9 @@ public class Post {
 	public Long getId() {
 		return id;
 	}
+	@Override
+	public String toString() {
+		return "Post [id=" + id + ", title=" + title + ", content=" + content + ", photo=" + photo + ", category="
+				+ category + ", creationDate=" + creationDate + "]";
+	}
 }
