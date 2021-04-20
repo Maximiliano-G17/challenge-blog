@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <div class="table-container">    
+        <table class="table">   
+            <caption class="table-caption">ALL POST</caption>  
+            <thead>
+              <tr class="table-row">
+                <th class="table-head">Title</th>
+                <th class="table-head">Photo</th>
+                <th class="table-head">Category</th>
+                <th class="table-head">Creation Date</th>
+                <th class="table-head">Update</th>
+                <th class="table-head">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-row" th:each="post:${allPosts}">
+                <td class="table-data" th:text="${post.title}"></td>
+                <td class="table-data" th:text="${post.photo}"></td>
+                <td class="table-data" th:text="${post.category}"></td>
+                <td class="table-data" th:text="${post.creationDate}"></td>
+                <td class="table-data"><a class="link" th:href="@{/api/post/update/} + ${post.id}">Update</a></td>                
+                <td class="table-data"><a class="link" th:target="_blank" th:href="@{/api/post/delete/} + ${post.id}">Delete</a></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div>
+    	<a class="link" th:href="@{/api/posts/}">Back</a>
+    </div>
+</body>
+</html>
