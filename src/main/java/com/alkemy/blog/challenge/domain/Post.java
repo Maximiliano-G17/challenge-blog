@@ -1,10 +1,13 @@
 package com.alkemy.blog.challenge.domain;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "post")
@@ -13,11 +16,13 @@ public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotBlank(message = "The title cannot be empty")
 	private String title;
+	@NotBlank(message = "The content cannot be empty")
 	private String content;
 	private String photo;
 	private String category;
-	private String creationDate;
+	private Date creationDate = new Date();
 	
 	public String getTitle() {
 		return title;
@@ -43,10 +48,10 @@ public class Post {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public String getCreationDate() {
+	public Date getCreationDate() {
 		return creationDate;
 	}
-	public void setCreationDate(String creationDate) {
+	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
 	public Long getId() {
