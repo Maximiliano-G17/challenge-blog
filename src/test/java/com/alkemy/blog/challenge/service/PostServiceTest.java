@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,7 +28,7 @@ public class PostServiceTest {
 		Post post = new Post();
 		post.setCategory("Gaming");
 		post.setContent("content");
-		post.setCreationDate("19/4/2021");
+		post.setCreationDate(new Date());
 		post.setPhoto("../.../");
 		post.setTitle("Title");
 		Post postSave = postService.save(post);
@@ -41,7 +42,7 @@ public class PostServiceTest {
 		List<Post> listPost = postService.findAll();
 		
 		assertThat(listPost).isNotEmpty();
-		assertEquals(1, listPost.size());
+		assertEquals(4, listPost.size());
 	}
 	
 	@Test
@@ -97,7 +98,7 @@ public class PostServiceTest {
 		Post post = new Post();
 		post.setCategory("Just Chatting");
 		post.setContent("content");
-		post.setCreationDate("19/4/2021");
+		post.setCreationDate(new Date());
 		post.setPhoto("../.../");
 		post.setTitle("Title");
 		postService.save(post);
