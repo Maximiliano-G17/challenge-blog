@@ -1,5 +1,6 @@
 package com.alkemy.blog.challenge.controller;
 
+import java.io.IOException;
 import java.util.NoSuchElementException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -33,7 +34,7 @@ public class ExceptionController {
     }
 	
 	@ResponseStatus(value=HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler(IOException.class)
     public String error500(HttpServletRequest req, Exception e){
 		logger.error("Request: " + req.getRequestURL() + " raised " + e);
         return "views/error400";

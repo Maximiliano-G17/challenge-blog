@@ -9,6 +9,7 @@
 </head>
 <body>
     <form th:action="@{/api/posts/post/}" method ="get">
+   		<label class="label" for="search">Search:</label>
 		<input id="id" type="text" name="id">
 		<input type="submit" value="Search">
 	</form>
@@ -27,8 +28,8 @@
               <tr class="table-row" th:each="post:${allPosts}">
                 <td class="table-data" th:text="${post.title}"></td>
                 <td class="table-data"><a class="link" th:target="_blank" th:href="@{/api/posts/description/} + ${post.id}">Description</a></td>
-                <td class="table-data"><a class="link" th:href="@{/api/post/update/} + ${post.id}">Update</a></td>                
-                <td class="table-data"><a class="link" th:target="_blank" th:href="@{/api/post/delete/} + ${post.id}">Delete</a></td>
+                <td class="table-data"><a class="link" th:href="@{/api/posts/update/} + ${post.id}">Update</a></td>                
+                <td class="table-data"><a class="link" th:href="@{/api/posts/delete/} + ${post.id}">Delete</a></td>
               </tr>
             </tbody>
           </table>

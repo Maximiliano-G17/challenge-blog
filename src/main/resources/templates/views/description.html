@@ -24,7 +24,7 @@
               <tr class="table-row" th:each="p:${post}">
                 <td class="table-data" th:text="${p.title}"></td>
                 <td class="table-data" th:text="${p.content}"></td>
-                <td class="table-data" th:text="${p.photo}"></td>
+                <td class="table-data"><a class="link" th:target="_blank" th:href="@{'/alkemy_challenge_java/' + ${post.photo}}">Photo</a></td>               
                 <td class="table-data" th:text="${p.category}"></td>
                 <td class="table-data" th:text="${p.creationDate}"></td>
               </tr>
