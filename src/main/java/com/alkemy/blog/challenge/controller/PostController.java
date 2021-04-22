@@ -39,7 +39,7 @@ public class PostController {
 	
 	@GetMapping("/")
 	public String home(@RequestParam Map<String, Object> params, Model model) {
-		Page<Post> pagePeople = postService.findPaginated(params);		
+		Page<Post> pagePeople = postService.findPaginated(params);
 		int totalPage = pagePeople.getTotalPages();
 		if(totalPage > 0) {
 			List<Integer> pages = IntStream.rangeClosed(1, totalPage).boxed().collect(Collectors.toList());
@@ -115,7 +115,7 @@ public class PostController {
 		return "views/register";
 	}
 	
-	@PostMapping("/delete/{id}")
+	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable Long id) throws NotFoundException{
 		Optional<Post> postFound = postService.findById(id);
 		if(!postFound.isPresent()) {

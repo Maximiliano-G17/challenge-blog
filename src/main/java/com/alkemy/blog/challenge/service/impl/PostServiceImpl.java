@@ -26,6 +26,7 @@ public class PostServiceImpl implements PostService{
 
 	@Override
 	public Post save(Post post) {
+		post.setDeleted(true);
 		return postRepository.save(post);
 	}
 	
@@ -44,8 +45,10 @@ public class PostServiceImpl implements PostService{
 	}
 
 	@Override
-	public void deleteById(Long id) {	
-		postRepository.deleteById(id);
+	public void deleteById(Long id) throws NotFoundException {	
+		Optional<Post> postFound = findById(id);
+		postFound.get().setDeleted(false);
+		postRepository.save(postFound.get());
 	}
 	
 	@Override
@@ -57,6 +60,7 @@ public class PostServiceImpl implements PostService{
 			page = 0;
 		}		
 		PageRequest pageable = PageRequest.of(page, 5);
+		
 		return postRepository.findAll(pageable);
 	}
 }

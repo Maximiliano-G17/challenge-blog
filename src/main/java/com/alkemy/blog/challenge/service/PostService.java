@@ -18,7 +18,7 @@ public interface PostService {
 
 	Optional<Post> findById(Long id) throws NotFoundException;
 
-	void deleteById(Long id);
+	void deleteById(Long id) throws NotFoundException;
 	
 	Page<Post> findPaginated(Map<String, Object> params);
 }

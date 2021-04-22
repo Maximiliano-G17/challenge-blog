@@ -9,8 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+
 @Entity
 @Table(name = "post")
+@SQLDelete(sql = "UPDATE car SET deleted=true WHERE id = ?")
+@Where(clause = "deleted = true")
 public class Post {
 	
 	@Id
@@ -23,6 +28,7 @@ public class Post {
 	private String photo;
 	private String category;
 	private Date creationDate = new Date();
+	private boolean deleted;
 	
 	public String getTitle() {
 		return title;
@@ -54,8 +60,17 @@ public class Post {
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public Long getId() {
 		return id;
+	}
+	public boolean isDeleted() {
+		return deleted;
+	}
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
 	}
 	@Override
 	public String toString() {

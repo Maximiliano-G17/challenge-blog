@@ -93,7 +93,7 @@ public class PostServiceTest {
 	}
 	
 	@Test
-	public void deletePost_withExistingId_returnEmpty(){	
+	public void deletePost_withExistingId_returnEmpty() throws NotFoundException{	
 		Long id = 5L;
 		Post post = new Post();
 		post.setCategory("Just Chatting");
