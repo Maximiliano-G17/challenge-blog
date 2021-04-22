@@ -13,6 +13,7 @@
             <caption class="table-caption">ALL POST</caption>  
             <thead>
               <tr class="table-row">
+              	<th class="table-head">Id</th>
                 <th class="table-head">Title</th>
                 <th class="table-head">Photo</th>
                 <th class="table-head">Category</th>
@@ -23,12 +24,13 @@
             </thead>
             <tbody>
               <tr class="table-row" th:each="post:${allPosts}">
+              	<td class="table-data" th:text="${post.id}"></td>
                 <td class="table-data" th:text="${post.title}"></td>
                 <td class="table-data"><a class="link" th:target="_blank" th:href="@{'/alkemy_challenge_java/' + ${post.photo}}">Photo</a></td>               
                 <td class="table-data" th:text="${post.category}"></td>
                 <td class="table-data" th:text="${post.creationDate}"></td>
-                <td class="table-data"><a class="link" th:href="@{/api/post/update/} + ${post.id}">Update</a></td>                
-                <td class="table-data"><a class="link" th:target="_blank" th:href="@{/api/post/delete/} + ${post.id}">Delete</a></td>
+                <td class="table-data"><a class="link" th:href="@{/api/posts/update/} + ${post.id}">Update</a></td>                
+                <td class="table-data"><a class="link" th:target="_blank" th:href="@{/api/posts/delete/} + ${post.id}">Delete</a></td>
               </tr>
             </tbody>
           </table>

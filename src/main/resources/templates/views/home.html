@@ -8,16 +8,23 @@
     <title>Home</title>
 </head>
 <body>
-    <form th:action="@{/api/posts/post/}" method ="get">
-   		<label class="label" for="search">Search:</label>
-		<input id="id" type="text" name="id">
-		<input type="submit" value="Search">
-	</form>
+	<div class="search">
+	    <form th:action="@{/api/posts/post/}" method ="get">
+	   		<label class="label" for="search">Search:</label>
+			<input id="id" type="text" name="id">
+			<input type="submit" value="Search">
+		</form>
+	</div>
+	<div class="home">
+      <a class="link" th:href="@{/api/posts/}">Home</a>
+      <a class="link" th:href="@{/api/posts/preUpdate}">Update</a>
+    </div>
     <div class="table-container">    
         <table class="table">   
-            <caption class="table-caption">POST</caption>  
+            <caption class="table-caption">POSTS</caption>  
             <thead>
               <tr class="table-row">
+              <th class="table-head">Id</th>
                 <th class="table-head">Title</th>
                 <th class="table-head">Description</th>
                 <th class="table-head">Update</th>
@@ -26,16 +33,28 @@
             </thead>
             <tbody>
               <tr class="table-row" th:each="post:${allPosts}">
+              <td class="table-data" th:text="${post.id}"></td>
                 <td class="table-data" th:text="${post.title}"></td>
                 <td class="table-data"><a class="link" th:target="_blank" th:href="@{/api/posts/description/} + ${post.id}">Description</a></td>
                 <td class="table-data"><a class="link" th:href="@{/api/posts/update/} + ${post.id}">Update</a></td>                
-                <td class="table-data"><a class="link" th:href="@{/api/posts/delete/} + ${post.id}">Delete</a></td>
+                <td class="table-data"><a class="link" th:href="@{/api/posts/delete/} + ${post.id}"
+						onclick="return confirm('make sure to delete the post')">Delete</a></td>                 
               </tr>
             </tbody>
           </table>
     </div>
+    <div class="pagination">
+	  <ul class="pagination-ul">
+	     <li th:each="page : ${pages}">
+	      	<a th:href="@{|/api/posts/?page=${page}|}" th:text="${page}"></a>
+	     </li>
+	   </ul>
+	</div>
     <div>
     	<a class="link" th:href="@{/api/posts/getAll}">See all posts</a>
+    </div>
+    <div>
+        <a class="register" href="/api/posts/register">Register</a>
     </div>
 </body>
 </html>
