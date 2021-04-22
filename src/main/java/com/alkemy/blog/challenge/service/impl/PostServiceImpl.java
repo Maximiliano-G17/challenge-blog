@@ -1,11 +1,14 @@
 package com.alkemy.blog.challenge.service.impl;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.alkemy.blog.challenge.domain.Post;
@@ -43,5 +46,17 @@ public class PostServiceImpl implements PostService{
 	@Override
 	public void deleteById(Long id) {	
 		postRepository.deleteById(id);
+	}
+	
+	@Override
+	public Page<Post> findPaginated(Map<String, Object> params) {
+		int page;
+		if(params.get("page") != null) {
+			page = Integer.valueOf(params.get("page").toString()) - 1;
+		}else {
+			page = 0;
+		}		
+		PageRequest pageable = PageRequest.of(page, 5);
+		return postRepository.findAll(pageable);
 	}
 }
