@@ -87,7 +87,6 @@ public class PostController {
 	@PostMapping("/postRegister")
 	public String postCreate(@Valid @ModelAttribute Post post,BindingResult result, Model model, 
 								@RequestParam("file") MultipartFile photos) throws IOException {
-		System.out.println(post.getId());
 		if (result.hasErrors()){
 			model.addAttribute("titulo", "REGISTER");
 			model.addAttribute("subtitulo", "CREATE NEW POST:");
@@ -107,7 +106,6 @@ public class PostController {
 	@GetMapping("/update/{id}")
 	public String update(Model model, @PathVariable Long id) throws NotFoundException{
 		Optional<Post> postFound = postService.findById(id);
-		System.out.println("++++++++++++++++++++++"+id);
 		if(!postFound.isPresent()) {
 			throw new NotFoundException("The student with file " + id + " does not exist");
 		}

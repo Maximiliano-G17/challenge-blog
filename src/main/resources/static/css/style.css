@@ -1,0 +1,117 @@
+body{
+    min-height: 100vh;
+    background-image: radial-gradient(
+        violet,rgb(27, 27, 212));
+    background-repeat:space;
+}
+.table{
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+}
+.table, .table-data, .table-head, .table-caption{ 
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border: solid 1px white;   
+}
+.table{
+    border-collapse: collapse;
+}
+.table-container{
+    margin-top: 3%;
+    overflow: auto;
+}
+.link{
+    color: white;
+}
+.link:hover{
+    color: red;
+}
+.container-shows{ 
+    margin-top: 10%;
+    font-size: 500%;
+    display: inline-flex;
+    justify-content: space-evenly; 
+    width: 100%;
+}
+a:hover{
+    color: white;
+}
+.form-group1, .form-group2,.form-group3,.form-group4,.form-group5,.form-group6{
+    display: grid;
+    margin: 2.5%
+}
+.label{
+    color: white;
+    font-size: 150%;
+}
+.input{
+    height: 100%;
+    border-radius: 7px;
+}
+.btn{
+    display: block;
+    font-size: 120%;
+    margin: 2% 85%;
+    border-radius: 7px;
+    width: 8%;  
+}
+.btn:hover{
+    font-size: 150%;
+    background-color: greenyellow;
+}
+.form1{
+    border: solid 1px whitesmoke;
+}
+.form-group7{
+    font-size: 120%;
+    margin: 2.5%;
+    margin-bottom: 1%;
+}
+.title{
+    font-size: 280%;
+    text-align: center;
+    color: whitesmoke;
+}
+.checks, .check1{
+    color: whitesmoke;  
+    margin-bottom: 1%;
+    margin-left: 2%;
+    font-size: 160%;
+}
+.check1{
+    margin-right: 0.5%;
+    display: inline-flex;
+    justify-content: space-around; 
+    transform: scale(1.2);
+}
+.register, .update{
+	text-align: right;
+	margin-top: 10%;
+    width: 5%;    
+    text-decoration: none;
+    color: black;
+    font-size: 130%;
+    margin: 2% 0%;
+    border-radius: 3px;
+    color: rgb(4, 248, 4);
+}
+.main_title{
+    color: blanchedalmond;
+    text-align: center;
+}
+.main_h4{
+    margin-top: 28%;
+    color: blanchedalmond;
+}
+.search{
+    text-align: right;
+}
+.searchUpdate{
+    text-align: center;
+}
+.home{
+    table-layout: fixed;
+    text-align: center;
+}
