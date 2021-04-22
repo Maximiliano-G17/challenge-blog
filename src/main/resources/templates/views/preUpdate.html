@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1 class="title">INSERT ID TO UPDATE A POST</h1>
+     <form class="title" th:action="@{/api/posts/postUpdate/}" method ="post">
+   		<label for="search">Post to update:</label>
+		<input id="id" type="text" name="id">
+		<input type="submit" value="Search">
+	</form>
+</body>
+</html>
